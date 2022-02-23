@@ -8,7 +8,7 @@
 Для входного списка из N строк одинаковой длины построить консенсус-строку.
 """
 
-s = """ATTA
+_str = """ATTA
 ACTA
 AGCA
 ACAA"""
@@ -17,7 +17,7 @@ length = 4
 _dict = [{}, {}, {}, {}]
 
 i = 0
-for x in s:
+for x in _str:
     if x == ' ' or x == '\n':
         i = 0
     else:

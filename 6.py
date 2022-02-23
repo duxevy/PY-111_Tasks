@@ -7,12 +7,12 @@
 Задача: вывести ответ, хватит ли вам одной ракеты, чтобы удовлетворить все заявки на этот день
 """
 
-applic_list = [(1, 2), (1, 3), (2, 3), (3, 4), (3, 5), (4, 6)]
+_list = [(1, 2), (1, 3), (2, 3), (3, 4), (3, 5), (4, 6)]
 
 sum_hours_working = 0
 min_start = 0
 max_end = 0
-for x in applic_list:
+for x in _list:
     if x[0] < min_start:
         min_start = x[0]
     if x[1] > max_end:
@@ -20,6 +20,6 @@ for x in applic_list:
     sum_hours_working += x[1] - x[0]
 
 if max_end - min_start >= sum_hours_working:
-    print("OK")
+    print("Да")
 else:
-    print("BAD")
+    print("Нет")

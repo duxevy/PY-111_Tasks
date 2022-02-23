@@ -4,13 +4,13 @@
 Задача: посчитать число компонент связности графа, т.е. количество таких подграфов.
 """
 
-import networkx as nx
+import networkx
 
-G = nx.Graph()
+G = networkx.Graph()
 G.add_nodes_from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 G.add_edges_from([(1, 2), (2, 3), (1, 3), (1, 4), (5, 6), (5, 7), (5, 8)])
 
-list_of_comp = list(nx.connected_components(G))
+list_of_comp = list(networkx.connected_components(G))
 print(list_of_comp)
 print(len(list_of_comp))
 

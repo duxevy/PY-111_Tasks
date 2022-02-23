@@ -40,7 +40,6 @@ def symmetric(a):
     return a + a.T - 2 * np.diag(a.diagonal())
 
 
-#  input data
 n = 20
 table = symmetric(np.random.rand(n, n))
 
@@ -51,5 +50,5 @@ table[end, start] = 1000
 
 d, p = dijkstra(start, table)
 
-print(d[end])  # print cost
-print(p[end])  # print path
+print(d[end])  # стоимость
+print(p[end])  # путь

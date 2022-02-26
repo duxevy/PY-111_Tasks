@@ -7,19 +7,36 @@
 Задача: вывести ответ, хватит ли вам одной ракеты, чтобы удовлетворить все заявки на этот день
 """
 
-_list = [(1, 2), (2, 4), (4, 5), (6, 7), (7, 9), (9, 12)]
+orders_list1 = [(1, 2), (2, 4), (4, 5), (6, 7), (7, 9), (9, 12)]
+orders_list2 = [(1, 2), (1, 4), (3, 5), (2, 7), (5, 9), (7, 14)]
+checked_orders = []
 
-sum_hours_working = 0
-min_start = 0
-max_end = 0
-for x in _list:
-    if x[0] < min_start:
-        min_start = x[0]
-    if x[1] > max_end:
-        max_end = x[1]
-    sum_hours_working += x[1] - x[0]
 
-if max_end - min_start >= sum_hours_working:
-    print("Да")
-else:
-    print("Нет")
+def rent(orders_list, checked_orders):
+    flag = True
+    checked_orders = []
+    for first_order in orders_list:
+        first_order_working_hours = range(first_order[0], first_order[1])
+        if flag:
+            for next_order in orders_list:
+                if first_order == next_order or \
+                        next_order in checked_orders:
+                    pass
+                else:
+                    if next_order[0] in first_order_working_hours:
+                        flag = False
+                    if next_order[1] in first_order_working_hours:
+                        flag = False
+                    if first_order[0] in range(next_order[0], next_order[1] + 1):
+                        flag = False
+
+        checked_orders.append(first_order)
+
+    if flag:
+        print('Одной ракеты хватит')
+    else:
+        print('Одной ракеты не хватит')
+
+
+rent(orders_list1, checked_orders)  # enough
+rent(orders_list2, checked_orders)  # not enough
